@@ -1,0 +1,17 @@
+
+// Add event listener to navigation menu
+
+const backgroundImage = document.querySelector('.background-image');
+
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+  backgroundImage.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+});
+
+document.querySelector('nav').addEventListener('click', function(event) {
+    if (event.target.tagName === 'A') {
+        event.preventDefault();
+        const sectionId = event.target.getAttribute('href').slice(1);
+        document.querySelector(`#${sectionId}`).scrollIntoView({ behavior: 'smooth' });
+    }
+});
